@@ -1,17 +1,16 @@
-'''
-import Sickit
-import numpy
-import Keras
-import Seaborn
-import Matplotlib#
-'''
+from sig2class import SVC2004 as svc
 
-import os 
-import glob
-import pandas as pd
-from Signature import Signature as sig
 
-signature = sig()
+path = 'C:\\Users\\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\SVC 2004\\Task2'
 
-print(signature.genuineSignatures(5))
-print(signature.whichUsersFile('U11S1.TXT'))
+sig = svc(userId= '1', directory = path)
+#sig.normalize()
+
+df = sig.signatures['U1S1.TXT']
+
+print(df)
+
+# for user in range(1, 41): itt lehetne egy ciklus ami random bekér 
+# genuine meg forged id kat random.sample-el (1,21 és 21,41) aztán eltarolni egy training valtozoba
+# miutan pl van 5 genuine es 5 forged, ezeknek az ertekeit lehetne normalizalni
+# igy kiveve a ket adatbazis random adatait

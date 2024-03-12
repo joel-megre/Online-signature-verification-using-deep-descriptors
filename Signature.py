@@ -10,7 +10,10 @@ class Signature:
         self.allData = pd.DataFrame()
         self.allFiles = os.path.join(self.Path + "/*.TXT")
         self.li = []
-        
+
+    def readFile(self, filePath):
+        return pd.read_csv(filePath, sep=' ', header=None)
+    
     def readFolderData(self):
         for filename in self.allFiles:
             df = pd.read_csv(filename, sep=' ', header=0)
