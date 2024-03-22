@@ -1,37 +1,34 @@
 import os
 import pandas as pd
 
-class SVC2004:
+class Signature:
     def __init__(self, userId, directory):
         self.userId = userId
         self.directory = directory
-        self.signatures = self.loadSignatures()
+        self.signatures = self.load_and_normalize()
 
-    def loadSignatures(self):
+    def load_and_normalize(self):
         signatures = {}
 
         for filename in os.listdir(self.directory):
-            if filename.endswith(".TXT"):
+            if filename.startswith(f"U{self.userId}S") and filename.endswith(".txt"):
                 with open(os.path.join(self.directory, filename), 'r') as file:
-                    numPoints = int(file.readline().strip())
-                    df = pd.read_csv(file, sep = ' ', names=['X', 'Y', 'Tstamp', 'Bstatus', 'AzAngle', 'AltAngle', 'Pressure'])
+                    df = pd.read_csv(file, sep = ' ', names=['X', 'Y', 'AZ', 'AL', 'P'], skiprows=1)
+
+                    df = df - df.iloc[0]
+
+                    df = (df - df.max()) / (df.min() - df.max())
+
                     signatures[filename] = df
         return signatures
     
-    def normalize(self):
-        for filename, df in self.signatures.items():
-            # Normalize alignment - align to start at point 0 
-            # .min() returns with the lowest value
-            # kell a tobbi ertek is? (szoveg szerint minden erteket normalizalunk)
-            df['X'] -= df['X'].min()
-            df['Y'] -= df['Y'].min()
+    def get_signatures(self, signature_id):
+        filename = f"U{self.userId}S{signature_id}.txt"
 
-            # Normalize size - make every signature the same size
-            # eleg ez vagy (df['X'] - df['X'].max()) / (df['X'].min() - df['X'].max())?
-            df['x'] /= df['X'].max()
-            df['Y'] /= df['Y'].max()
-
-            self.signatures[filename] = df 
+        return self.signatures[filename]
+    
+    def get_all_signatures(self):
+        return self.signatures
 
 
 

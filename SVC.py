@@ -1,16 +1,19 @@
-from sig2class import SVC2004 as svc
+from sig2class import Signature as svc
+from Sampler import Sampler as smp
 
+path_training = 'C:\\Users\\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\training'
 
-path = 'C:\\Users\\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\SVC 2004\\Task2'
+first_user = svc(1,  path_training)
 
-sig = svc(userId= '1', directory = path)
-#sig.normalize()
+first_signature = first_user.get_signatures(1) #only gives back the data of the first user normalzed
+all_signatures = first_user.get_all_signatures() #gives back all the data of the first user normalized
 
-df = sig.signatures['U1S1.TXT']
+#print(all_signatures)
+#print(first_signature)
 
-print(df)
+sampler = smp(path_training)
 
-# for user in range(1, 41): itt lehetne egy ciklus ami random bekér 
-# genuine meg forged id kat random.sample-el (1,21 és 21,41) aztán eltarolni egy training valtozoba
-# miutan pl van 5 genuine es 5 forged, ezeknek az ertekeit lehetne normalizalni
-# igy kiveve a ket adatbazis random adatait
+first = sampler.database['1']['U1S1.txt']
+for_users = sampler.database
+#print(first)
+print(for_users)
