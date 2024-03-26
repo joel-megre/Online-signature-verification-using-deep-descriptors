@@ -48,3 +48,94 @@
 #### Kérdések következő konzira 
 - A sigcomp 3 file training-forged-genuine egybe kell rakni az svc testing-training-evaluation -be?
 - Ezeket userre külön kezelni?
+
+
+2024.03.22 konzi
+
+- dataset 20009 -re befejezés
+- model átfutása
+- megvalósítás elkezdése
+
+2024.03.26 - self notes
+
+model breakdown:
+
+- pre-processed data to a CNN (convolutional neural network)
+- mulit-layer neural network - deep supervised learning arch
+- CNN = feature extractor + trainable classifier 
+- only feature extraction needed: 
+    - convolutional filtering
+        - unique filters that can detect several features
+    - downsampling operations
+- CNN 1D
+
+1D convolutional layers:
+
+The convolutional layers define filters or feature detectors with a height equal to the kernel size.
+However, signatures are very complex, hence, in each layer, n (which is different in each layer) filters are defined. 
+Hence the output of this layer is a m x n where m is the number of points in a signature file - 20 + 1. With the defined kernel size and considering the length of the input matrix, each filter will contain m weights.
+
+algorithm explanation:
+
+![image](/images/1D%20convolution%20algorithm.png)
+
+Convolutions in 1D link: https://www.algorithm-archive.org/contents/convolutions/1d/1d.html
+
+1D max pooling layer:
+the layer applies a transformation that maintains the mean activation close to 0 and the activation standard deviation close to 1. greatly accelerates the learning rates. deep neural networks with sigmoid activations
+
+pooling layers: reduce the dimensions of data combining the outputs of neuron clusters at one layer into a single neuron in the next layer, max pooling needed.
+pooling: form of linear downsampling.
+
+The pooling layer serves to progressively reduce the spatial size of the representation, to reduce the number of parameters, memory footprint and amount of computation in the network, and hence to also control overfitting. This is known as down-sampling.
+A very common form of max pooling is a layer with filters of size 2×2, applied with a stride of 2, which subsamples every depth slice in the input by 2 along both width and height, discarding 75% of the activations:
+
+![image](/images/max%20pooling.png)
+
+maxpooling explained:
+
+![image](/images/max%20pooling%20explained.png)
+
+ReLu layer (rectified linear unit):
+
+applies non-saturating activation function f(x) = max(0,x)
+removes negative values from an activation map by setting them to zero
+
+Dropout layer:
+
+randomly assigns 0 weights to neurons in the model. makes the model less sensitive towards smaller variations in the data.
+
+Dropout layer explained:
+
+![image](/images/dropout%20layer.png)
+
+Masking layer:
+
+mask out the padded sequences so that the model doesn't use the padding as features and only predicts on the correct length
+of the sample
+
+Masking layer explained:
+
+![image](/images/masking%20layer.png)
+
+Simple RNN layer:
+
+fully connected RNN where the output is to be fed back to the input
+
+Simple RNN layer explained:
+
+![image](/images/simple%20RNN%20layer.png)
+
+Dense layer:
+
+reduce the height of the vector to 4 then 2, using matrix multiplication
+
+Dense layer explained:
+
+![images](/images/dense%20layer%20.png)
+
+
+
+
+
+

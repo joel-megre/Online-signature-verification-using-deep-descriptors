@@ -20,9 +20,11 @@ for user in range(1,41,1):
             lines = file.readlines()
 
         modified_lines = []
-        for line in lines:
+        for line_num, line in enumerate(lines):
             fields = line.split()
-            fields = [field for j, field in enumerate(fields) if j not in [2 , 3]]
+            if line_num != 0:
+                fields[2], fields[6] = fields[6], fields[2]
+                fields = [field for j, field in enumerate(fields) if j not in [3, 6]]
             modified_line = ' '.join(fields)
             modified_lines.append(modified_line)
 
@@ -36,9 +38,11 @@ for user in range(1,41,1):
             lines = file.readlines()
 
         modified_lines = []
-        for line in lines:
+        for line_num, line in enumerate(lines):
             fields = line.split()
-            fields = [field for j, field in enumerate(fields) if j not in [2 , 3]]
+            if line_num != 0:
+                fields[2], fields[6] = fields[6], fields[2]
+                fields = [field for j, field in enumerate(fields) if j not in [3,6]]
             modified_line = ' '.join(fields)
             modified_lines.append(modified_line)
 
