@@ -135,7 +135,26 @@ Dense layer explained:
 ![images](/images/dense%20layer%20.png)
 
 
+Keras library: powerful and easy-to-use free open source Python library for developing and evaluating deep learning models
 
+
+
+2024.03.27 - konzi
+
+sigcomp 2009 - training - training and testing (alairokat osztjuk el 80-20 ba ) 5-5 hamisitott es eredeti traininghez, 8 user traininghez 4 ember testinghez(tanitason belul megnezzuk hol tartunk) 
+nfi - teszteleshez 5-5/ user
+
+evaluationbe a 20 %, es sgcompbol nfi 
+svc bol 40 - 80/20 ba a usereket 
+
+
+dataset teljesen elokeszitve szunet utanra
+
+tutorial 1d konvolucioshalo tensorban 
+szintaktika - layerhozzaadasara 
+
+NFI - forgery: xxx - forged users id, yy - forgery/sig(1-6), ZZZ-forger ? 
+Ahhoz, hogy egyenlo szamut tudjunk csinalni, csak ebbol a 33 usernek az adatait vehetjuk? 
 
 
 
