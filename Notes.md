@@ -153,8 +153,7 @@ dataset teljesen elokeszitve szunet utanra
 tutorial 1d konvolucioshalo tensorban 
 szintaktika - layerhozzaadasara 
 
-NFI - forgery: xxx - forged users id, yy - forgery/sig(1-6), ZZZ-forger ? 
-Ahhoz, hogy egyenlo szamut tudjunk csinalni, csak ebbol a 33 usernek az adatait vehetjuk? 
+
 
 
 
