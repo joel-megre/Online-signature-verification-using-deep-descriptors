@@ -10,8 +10,11 @@ for user in range (1, 10, 1):
         with open(read_path  + file_name + '.hwr', 'r') as file:
             lines = file.readlines()
 
-        with open(write_path_training + 'U' + str(33 + user) + 'S' + str(i) + '.txt', 'a') as file:
-            file.write(''.join(lines))
+        with open(write_path_training + 'U' + str(32 + user) + 'S' + str(i) + '.txt', 'a') as file:
+            for line in lines:
+                line = ' '.join(line.split())
+                file.write(line + '\n')
+
 
 for user in range (10, 13, 1):
     for i in range(1, 6, 1):
@@ -20,8 +23,10 @@ for user in range (10, 13, 1):
         with open(read_path  + file_name + '.hwr', 'r') as file:
             lines = file.readlines()
 
-        with open(write_path_testing + 'U' + str(33 + user) + 'S' + str(i) + '.txt', 'a') as file:
-            file.write(''.join(lines))
+        with open(write_path_testing + 'U' + str(32 + user) + 'S' + str(i) + '.txt', 'a') as file:
+            for line in lines:
+                line = ' '.join(line.split())
+                file.write(line + '\n')
 
 for user in range(1, 10, 1):
     file_counter = 0
@@ -35,8 +40,10 @@ for user in range(1, 10, 1):
                 with open(read_path + file_name + '.hwr', 'r') as file:
                     lines = file.readlines()
             
-                with open(write_path_training +  'U' + str(33 + user) + 'S' + str(20 + signature + forger) + '.txt', 'a') as file:
-                    file.write(''.join(lines))
+                with open(write_path_training +  'U' + str(32 + user) + 'S' + str(20 + signature + forger) + '.txt', 'a') as file:
+                    for line in lines:
+                        line = ' '.join(line.split())
+                        file.write(line + '\n')
                     file_counter += 1
             except FileNotFoundError:
                 print(file_name + ' not found')
@@ -58,8 +65,10 @@ for user in range(10, 13, 1):
                 with open(read_path + file_name + '.hwr', 'r') as file:
                     lines = file.readlines()
             
-                with open(write_path_testing +  'U' + str(33 + user) + 'S' + str(20 + signature + forger) + '.txt', 'a') as file:
-                    file.write(''.join(lines))
+                with open(write_path_testing +  'U' + str(32 + user) + 'S' + str(20 + signature + forger) + '.txt', 'a') as file:
+                    for line in lines:
+                        line = ' '.join(line.split())
+                        file.write(line + '\n')
                     file_counter += 1
             except FileNotFoundError:
                 print(file_name + ' not found')

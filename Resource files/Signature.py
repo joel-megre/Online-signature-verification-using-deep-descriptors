@@ -19,7 +19,11 @@ class Signature:
 
                     df = (df - df.max()) / (df.min() - df.max())
 
-                    signatures[filename] = df
+                    signature_id = int(filename.split('S')[1].split('.')[0])
+
+                    label = 1 if signature_id <= 20 else 0
+
+                    signatures[filename] = (df,label)
         return signatures
     
     def get_signatures(self, signature_id):

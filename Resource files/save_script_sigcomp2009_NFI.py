@@ -25,7 +25,9 @@ for user in users_for_testing_and_training:
                 lines = file.readlines()
 
             with open(write_path_testing + 'U' + str(46 + user) + 'S' + sig_id + '.txt', 'a') as file:
-                file.write(''.join(lines))
+                for line in lines:
+                    line = ' '.join(line.split())
+                    file.write(line + '\n')
         except FileNotFoundError:
             print(signature + ' not found')
             continue
@@ -44,7 +46,9 @@ for user in users_for_testing_and_training:
                 lines = file.readlines()
 
             with open(write_path_training + 'U' + str(43 + user) + 'S' + sig_id + '.txt', 'a') as file:
-                file.write(''.join(lines))
+                for line in lines:
+                    line = ' '.join(line.split())
+                    file.write(line + '\n')
         except FileNotFoundError:
             print(signature + ' not found')
             continue
@@ -66,7 +70,9 @@ for user in users_for_testing_and_training:
                 lines = file.readlines()
 
             with open(write_path_testing + 'U' + str(46 + user) + 'S' + str(i) + '.txt', 'a') as file:
-                file.write(''.join(lines))
+                for line in lines:
+                    line = ' '.join(line.split())
+                    file.write(line + '\n')
         except FileNotFoundError:
             print(file_name + ' not found')
             continue
@@ -82,7 +88,9 @@ for user in users_for_testing_and_training:
                 lines = file.readlines()
 
             with open(write_path_training + 'U' + str(43 + user) + 'S' + str(i) + '.txt', 'a') as file:
-                file.write(''.join(lines))
+                for line in lines:
+                    line = ' '.join(line.split())
+                    file.write(line + '\n')
         except FileNotFoundError:
             print(file_name + ' not found')
             continue
@@ -102,7 +110,9 @@ for user in users_for_eval:
                 lines = file.readlines()
 
             with open(write_path_evaluation + 'U' + str(40 + user) + 'S' + str(i) + '.txt', 'a') as file:
-                file.write(''.join(lines))
+                for line in lines:
+                    line = ' '.join(line.split())
+                    file.write(line + '\n')
         except FileNotFoundError:
             print(file_name + ' not found')
             continue
@@ -121,7 +131,9 @@ for user in users_for_eval:
                 lines = file.readlines()
 
             with open(write_path_evaluation + 'U' + str(40 + user) + 'S' + sig_id + '.txt', 'a') as file:
-                file.write(''.join(lines))
+                for line in lines:
+                    line = ' '.join(line.split())
+                    file.write(line + '\n')
         except FileNotFoundError:
             print(signature + ' not found')
             continue
