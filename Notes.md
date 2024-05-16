@@ -153,7 +153,23 @@ dataset teljesen elokeszitve szunet utanra
 tutorial 1d konvolucioshalo tensorban 
 szintaktika - layerhozzaadasara 
 
+2024.05.02 - munka
+
+- folderek újratöltése: 
+    - svc2004 ből 35 user training/tesing 15/5 ös arányban - high testing accuracy - low evaluation accuracy ~0.785- 0.629 (volt ilyen is: 0.85-0.495), utolsó conv1d kernel size 2->5 - 0.81-0.575
+    - Adam = 0.01-re 0.85- 0.6
+    - hozzáadva a sigcomp training set - szignifikánsan rosszabb eredmények - low - low accuracy ~0.5
+
+    - binary - sigmoid, sparse categorical - softmax 
 
 
+2024.05.03 - konzi
+
+- training validation userek nem szetbontasa hogy a tultanulast elkeruljuk
+- masik loss function hasznalata
 
 
+2024.05.03 - munka
+
+84% evaluation accuracy eachieved at 32 batch size, 100 epochs
+![images](/images/accuracy.PNG)

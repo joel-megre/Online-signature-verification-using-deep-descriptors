@@ -1,9 +1,9 @@
 import random
 import os
 
-write_path_testing = "C:\\Users\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\testing\\"
-write_path_training = "C:\\Users\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\training\\"
-write_path_evaluation = "C:\\Users\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\evaluation\\"
+write_path_testing = "C:\\Users\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\testing2\\"
+write_path_training = "C:\\Users\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\training2\\"
+write_path_evaluation = "C:\\Users\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\evaluation2\\"
 
 read_path_genuine = 'C:\\Users\\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\SigComp2009\\NFI_\\genuines\\'
 read_path_forgery = 'C:\\Users\\ASUS\\Documents\\BME\\6. félév\\Önálló laboratórium\\Signature Verification\\SigComp2009\\NFI_\\forgeries\\'
@@ -56,7 +56,7 @@ for user in users_for_testing_and_training:
             print(e)
             continue
 
-    users_for_testing = random.sample(population = range(1, 12), k = 6) #might be subject to change 
+    users_for_testing = random.sample(population = range(1, 12), k = 6)
     users_for_training = list(range(1, 13, 1))
 
     for i in users_for_testing:
@@ -100,7 +100,6 @@ for user in users_for_testing_and_training:
 
 
 for user in users_for_eval:
-    #users_for_evaluation = random.sample(population = range(1, 12), k = 12) #could be more based on genuines
     users_for_evaluation = list(range(1, 13, 1))
     for i in users_for_evaluation:
         file_name = 'NFI-' + str(user).zfill(3) + str(i).zfill(2) + str(user).zfill(3)
